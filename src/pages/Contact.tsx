@@ -3,6 +3,10 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { toast } from 'sonner';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
@@ -13,12 +17,27 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would integrate with EmailJS or another email service
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Show success message
+    setShowSuccess(true);
     toast.success("Message sent successfully! I'll get back to you soon.");
+    
+    // Reset form
     setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(false);
+    
+    // Hide success message after 5 seconds
+    setTimeout(() => setShowSuccess(false), 5000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -65,20 +84,37 @@ const Contact = () => {
                 <CardTitle className="text-white text-2xl">Send me a message</CardTitle>
               </CardHeader>
               <CardContent>
+                {showSuccess && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6"
+                  >
+                    <Alert className="bg-green-500/20 border-green-500/50 text-green-300">
+                      <AlertDescription>
+                        ✅ Your message has been sent successfully! Thank you for reaching out. I'll get back to you soon.
+                      </AlertDescription>
+                    </Alert>
+                  </motion.div>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
+                    className="space-y-2"
                   >
-                    <input
-                      type="text"
+                    <Label htmlFor="name" className="text-white/80">Your Name *</Label>
+                    <Input
+                      id="name"
                       name="name"
-                      placeholder="Your Name"
+                      type="text"
+                      placeholder="Enter your full name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-purple-400 transition-colors"
+                      className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400"
                     />
                   </motion.div>
                   
@@ -86,15 +122,18 @@ const Contact = () => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.7 }}
+                    className="space-y-2"
                   >
-                    <input
-                      type="email"
+                    <Label htmlFor="email" className="text-white/80">Your Email *</Label>
+                    <Input
+                      id="email"
                       name="email"
-                      placeholder="Your Email"
+                      type="email"
+                      placeholder="Enter your email address"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-purple-400 transition-colors"
+                      className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400"
                     />
                   </motion.div>
                   
@@ -102,15 +141,18 @@ const Contact = () => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
+                    className="space-y-2"
                   >
-                    <input
-                      type="text"
+                    <Label htmlFor="subject" className="text-white/80">Subject *</Label>
+                    <Input
+                      id="subject"
                       name="subject"
-                      placeholder="Subject"
+                      type="text"
+                      placeholder="What's this about?"
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-purple-400 transition-colors"
+                      className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400"
                     />
                   </motion.div>
                   
@@ -118,15 +160,18 @@ const Contact = () => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.9 }}
+                    className="space-y-2"
                   >
-                    <textarea
+                    <Label htmlFor="message" className="text-white/80">Your Message *</Label>
+                    <Textarea
+                      id="message"
                       name="message"
-                      placeholder="Your Message"
+                      placeholder="Tell me about your project or inquiry..."
                       value={formData.message}
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-purple-400 transition-colors resize-none"
+                      className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400 resize-none"
                     />
                   </motion.div>
                   
@@ -139,9 +184,10 @@ const Contact = () => {
                   >
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 disabled:opacity-50"
                     >
-                      Send Message ✨
+                      {isSubmitting ? 'Sending...' : 'Send Message ✨'}
                     </Button>
                   </motion.div>
                 </form>
