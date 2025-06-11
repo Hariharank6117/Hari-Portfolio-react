@@ -1,22 +1,23 @@
-
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Button } from '@/components/ui/button';
 import ParticleBackground from '@/components/ParticleBackground';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 const AnimatedSphere = () => {
   return (
-    <Sphere args={[1, 100, 200]} scale={2}>
-      <MeshDistortMaterial
-        color="#8B5CF6"
-        distort={0.5}
-        speed={2}
+    <mesh>
+      <sphereGeometry args={[1, 64, 64]} />
+      <meshStandardMaterial 
+        color="#8B5CF6" 
+        metalness={0.7}
         roughness={0.2}
+        emissive="#8B5CF6"
+        emissiveIntensity={0.2}
       />
-    </Sphere>
+    </mesh>
   );
 };
 
