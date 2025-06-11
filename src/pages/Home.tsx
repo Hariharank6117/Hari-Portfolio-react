@@ -9,10 +9,9 @@ import AnimatedBackground from '@/components/AnimatedBackground';
 
 const AnimatedSphere = () => {
   return (
-    <Sphere visible args={[1, 100, 200]} scale={2}>
+    <Sphere args={[1, 100, 200]} scale={2}>
       <MeshDistortMaterial
         color="#8B5CF6"
-        attach="material"
         distort={0.5}
         speed={2}
         roughness={0.2}
