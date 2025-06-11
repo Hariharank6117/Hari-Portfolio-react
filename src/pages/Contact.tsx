@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { toast } from 'sonner';
+import { Linkedin, Github, Twitter, Instagram } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 const Contact = () => {
@@ -243,21 +244,24 @@ const Contact = () => {
               </h3>
               <div className="flex justify-center space-x-6">
                 {[
-                  { icon: "💼", label: "LinkedIn" },
-                  { icon: "🐙", label: "GitHub" },
-                  { icon: "🐦", label: "Twitter" },
-                  { icon: "📷", label: "Instagram" }
-                ].map((social, index) => (
-                  <motion.a
-                    key={social.label}
-                    href="#"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-lg border border-purple-400/30 rounded-full flex items-center justify-center text-2xl hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
+                  { icon: Linkedin, label: "LinkedIn" },
+                  { icon: Github, label: "GitHub" },
+                  { icon: Twitter, label: "Twitter" },
+                  { icon: Instagram, label: "Instagram" }
+                ].map((social, index) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <motion.a
+                      key={social.label}
+                      href="#"
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-lg border border-purple-400/30 rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                    >
+                      <IconComponent size={20} className="text-white" />
+                    </motion.a>
+                  );
+                })}
               </div>
             </motion.div>
           </motion.div>
