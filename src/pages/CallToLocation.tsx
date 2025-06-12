@@ -47,11 +47,11 @@ const CallToLocation = () => {
               </CardHeader>
               <CardContent className="text-white/80">
                 <p className="mb-4">
-                  📍 Based in [Your City, Country]
+                  📍 Based in Chennai, Tamil Nadu, India
                 </p>
                 <p>
                   I'm available for remote work globally and in-person meetings 
-                  in my local area. Let's find the best way to collaborate!
+                  in Chennai and surrounding areas. Let's find the best way to collaborate!
                 </p>
               </CardContent>
             </Card>
@@ -92,8 +92,8 @@ const CallToLocation = () => {
                 </p>
                 <div className="space-y-2 text-sm">
                   <p className="text-white/70">📧 your.email@example.com</p>
-                  <p className="text-white/70">📱 +1 (555) 123-4567</p>
-                  <p className="text-white/70">💬 Available Mon-Fri, 9AM-6PM</p>
+                  <p className="text-white/70">📱 +91 98765 43210</p>
+                  <p className="text-white/70">💬 Available Mon-Fri, 9AM-6PM IST</p>
                 </div>
               </CardContent>
             </Card>
@@ -107,7 +107,7 @@ const CallToLocation = () => {
           >
             <div className="w-full h-full rounded-lg overflow-hidden bg-black/20 backdrop-blur-lg border border-white/10">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6976637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sus!4v1234567890123"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497511.2313282967!2d79.87429686965317!3d13.048267162823252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sus!4v1234567890123"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

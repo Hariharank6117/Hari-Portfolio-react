@@ -15,7 +15,7 @@ const Projects = () => {
       description: "Full-stack e-commerce solution with React, Node.js, and MongoDB",
       tech: ["React", "Node.js", "MongoDB", "Express"],
       category: "Web",
-      image: "🛒",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&h=200&fit=crop&crop=center",
       demoLink: "#",
       githubLink: "#"
     },
@@ -24,7 +24,7 @@ const Projects = () => {
       description: "Interactive task management application with CRUD operations and local storage",
       tech: ["React", "TypeScript", "CSS3", "LocalStorage"],
       category: "Web",
-      image: "📝",
+      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=300&h=200&fit=crop&crop=center",
       demoLink: "#",
       githubLink: "#"
     },
@@ -33,7 +33,16 @@ const Projects = () => {
       description: "Real-time weather application with location-based forecasts and beautiful UI",
       tech: ["React", "Weather API", "Geolocation", "CSS3"],
       category: "Web",
-      image: "🌤️",
+      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=300&h=200&fit=crop&crop=center",
+      demoLink: "#",
+      githubLink: "#"
+    },
+    {
+      title: "AI Chat Application",
+      description: "Real-time chat application with AI integration and natural language processing",
+      tech: ["React", "Socket.io", "OpenAI API", "Node.js"],
+      category: "AI",
+      image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=300&h=200&fit=crop&crop=center",
       demoLink: "#",
       githubLink: "#"
     },
@@ -42,7 +51,7 @@ const Projects = () => {
       description: "Revolutionary BCI system converting brain signals to text using machine learning",
       tech: ["Python", "TensorFlow", "EEG Processing", "Signal Analysis"],
       category: "AI",
-      image: "🧠",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=200&fit=crop&crop=center",
       demoLink: "#",
       githubLink: "#"
     },
@@ -51,7 +60,7 @@ const Projects = () => {
       description: "Medical AI system for early disease detection through retinal image analysis",
       tech: ["Python", "Deep Learning", "OpenCV", "Medical Imaging"],
       category: "Medical AI",
-      image: "👁️",
+      image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=300&h=200&fit=crop&crop=center",
       demoLink: "#",
       githubLink: "#"
     }
@@ -133,8 +142,12 @@ const Projects = () => {
             >
               <Card className="bg-black/20 backdrop-blur-lg border-white/10 h-full overflow-hidden hover:border-purple-400/50 transition-all duration-300">
                 <CardHeader>
-                  <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                    {project.image}
+                  <div className="mb-4 overflow-hidden rounded-lg">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
                   <CardTitle className="text-white group-hover:text-purple-300 transition-colors">
                     {project.title}

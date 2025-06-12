@@ -7,35 +7,25 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Frontend",
-      icon: "🎨",
+      icon: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=100&h=100&fit=crop&crop=center",
       skills: [
-        { name: "React", level: 95, icon: "⚛️" },
-        { name: "TypeScript", level: 90, icon: "📘" },
-        { name: "Next.js", level: 85, icon: "▲" },
-        { name: "Tailwind CSS", level: 92, icon: "🎨" },
-        { name: "Framer Motion", level: 88, icon: "🎬" }
+        { name: "React", level: 95, icon: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=40&h=40&fit=crop&crop=center" },
+        { name: "TypeScript", level: 90, icon: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=40&h=40&fit=crop&crop=center" },
+        { name: "JavaScript", level: 92, icon: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=40&h=40&fit=crop&crop=center" },
+        { name: "HTML & CSS", level: 88, icon: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=center" },
+        { name: "Media Query", level: 85, icon: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=40&h=40&fit=crop&crop=center" }
       ]
     },
     {
       title: "Backend",
-      icon: "⚙️",
+      icon: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=100&h=100&fit=crop&crop=center",
       skills: [
-        { name: "Node.js", level: 88, icon: "💚" },
-        { name: "Python", level: 85, icon: "🐍" },
-        { name: "Express.js", level: 90, icon: "🚂" },
-        { name: "PostgreSQL", level: 82, icon: "🐘" },
-        { name: "MongoDB", level: 80, icon: "🍃" }
-      ]
-    },
-    {
-      title: "Tools & DevOps",
-      icon: "🛠️",
-      skills: [
-        { name: "Git", level: 92, icon: "📚" },
-        { name: "Docker", level: 78, icon: "🐳" },
-        { name: "AWS", level: 75, icon: "☁️" },
-        { name: "Figma", level: 85, icon: "🎨" },
-        { name: "VS Code", level: 95, icon: "💻" }
+        { name: "Java", level: 92, icon: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=40&h=40&fit=crop&crop=center" },
+        { name: "Servlet", level: 88, icon: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=40&h=40&fit=crop&crop=center" },
+        { name: "JSP", level: 85, icon: "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?w=40&h=40&fit=crop&crop=center" },
+        { name: "Spring", level: 90, icon: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=40&h=40&fit=crop&crop=center" },
+        { name: "Spring Boot", level: 88, icon: "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=40&h=40&fit=crop&crop=center" },
+        { name: "Oracle", level: 82, icon: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=40&h=40&fit=crop&crop=center" }
       ]
     }
   ];
@@ -65,7 +55,7 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -75,7 +65,11 @@ const Skills = () => {
             >
               <Card className="bg-black/20 backdrop-blur-lg border-white/10 h-full">
                 <CardHeader className="text-center">
-                  <div className="text-4xl mb-2">{category.icon}</div>
+                  <img 
+                    src={category.icon} 
+                    alt={category.title}
+                    className="w-16 h-16 mx-auto mb-4 rounded-full object-cover"
+                  />
                   <CardTitle className="text-white text-2xl">{category.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -90,8 +84,12 @@ const Skills = () => {
                       }}
                     >
                       <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <span className="text-lg">{skill.icon}</span>
+                        <div className="flex items-center gap-3">
+                          <img 
+                            src={skill.icon} 
+                            alt={skill.name}
+                            className="w-8 h-8 rounded object-cover"
+                          />
                           <span className="text-white font-medium">{skill.name}</span>
                         </div>
                         <span className="text-purple-300 text-sm font-semibold">
@@ -140,7 +138,7 @@ const Skills = () => {
             What I'm Currently Learning
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            {["Three.js", "WebGL", "Rust", "GraphQL", "Kubernetes"].map((tech, index) => (
+            {["MySQL", "MongoDB", "REST APIs", "Microservices", "Docker"].map((tech, index) => (
               <motion.div
                 key={tech}
                 initial={{ scale: 0 }}
