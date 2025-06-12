@@ -24,10 +24,19 @@ const AnimatedSphere = () => {
 
 const Home = () => {
   const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
+    const targetElement = document.getElementById('content-section');
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    } else {
+      // Fallback to window scroll
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -39,7 +48,7 @@ const Home = () => {
       className="relative"
     >
       {/* Hero Section */}
-      <div className="min-h-screen flex items-center justify-center pt-20">
+      <div className="min-h-screen flex items-center justify-center pt-20 relative">
         <AnimatedBackground />
         <ParticleBackground />
         
@@ -127,30 +136,76 @@ const Home = () => {
           </div>
         </div>
         
-        {/* Scroll Indicator */}
+        {/* Enhanced Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
           onClick={scrollToContent}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
+          {/* Outer glow effect */}
+          <motion.div
+            className="absolute inset-0 w-8 h-12 bg-gradient-to-b from-purple-400/30 to-pink-400/30 rounded-full blur-lg"
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3]
+            }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Main scroll indicator */}
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center hover:border-white/60 transition-colors"
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="relative w-8 h-12 border-2 border-gradient-to-b from-purple-400 to-pink-400 rounded-full flex justify-center bg-black/20 backdrop-blur-sm hover:border-white/80 hover:bg-black/40 transition-all duration-300"
+            style={{
+              borderImage: 'linear-gradient(to bottom, #a855f7, #ec4899) 1'
+            }}
           >
+            {/* Inner dot */}
             <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-white/50 rounded-full mt-2"
+              animate={{ 
+                y: [2, 16, 2],
+                scale: [1, 0.8, 1]
+              }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="w-1.5 h-4 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full mt-2 shadow-lg"
             />
+          </motion.div>
+          
+          {/* Text label */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ 
+              duration: 3, 
+              repeat: Infinity,
+              delay: 1
+            }}
+            className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 text-sm font-medium whitespace-nowrap"
+          >
+            Scroll to explore
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Additional Content Section (for scroll functionality) */}
-      <div className="min-h-screen bg-black/20 backdrop-blur-sm flex items-center justify-center">
+      {/* Content Section with ID for smooth scrolling */}
+      <div id="content-section" className="min-h-screen bg-black/20 backdrop-blur-sm flex items-center justify-center">
         <div className="container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
