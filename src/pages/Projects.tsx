@@ -20,53 +20,44 @@ const Projects = () => {
       githubLink: "#"
     },
     {
-      title: "AI Chat Application",
-      description: "Real-time chat app with AI integration and sentiment analysis",
-      tech: ["React", "Socket.io", "OpenAI", "Python"],
-      category: "AI",
-      image: "🤖",
-      demoLink: "#",
-      githubLink: "#"
-    },
-    {
-      title: "Mobile Fitness Tracker",
-      description: "React Native app for tracking workouts and nutrition",
-      tech: ["React Native", "Firebase", "Redux"],
-      category: "Mobile",
-      image: "💪",
-      demoLink: "#",
-      githubLink: "#"
-    },
-    {
-      title: "Data Visualization Dashboard",
-      description: "Interactive dashboard for business analytics",
-      tech: ["React", "D3.js", "TypeScript", "API"],
+      title: "To Do List Using React",
+      description: "Interactive task management application with CRUD operations and local storage",
+      tech: ["React", "TypeScript", "CSS3", "LocalStorage"],
       category: "Web",
-      image: "📊",
+      image: "📝",
       demoLink: "#",
       githubLink: "#"
     },
     {
-      title: "Blockchain Voting System",
-      description: "Secure voting platform using blockchain technology",
-      tech: ["Solidity", "Web3.js", "React", "Ethereum"],
-      category: "Blockchain",
-      image: "🗳️",
+      title: "Weather App",
+      description: "Real-time weather application with location-based forecasts and beautiful UI",
+      tech: ["React", "Weather API", "Geolocation", "CSS3"],
+      category: "Web",
+      image: "🌤️",
       demoLink: "#",
       githubLink: "#"
     },
     {
-      title: "AR Shopping Experience",
-      description: "Augmented reality shopping app for furniture",
-      tech: ["Unity", "ARCore", "C#", "Firebase"],
-      category: "AR/VR",
-      image: "🏠",
+      title: "AI Based Thought-To-Text Converter Using EEG",
+      description: "Revolutionary BCI system converting brain signals to text using machine learning",
+      tech: ["Python", "TensorFlow", "EEG Processing", "Signal Analysis"],
+      category: "AI",
+      image: "🧠",
+      demoLink: "#",
+      githubLink: "#"
+    },
+    {
+      title: "Identification of Alzheimer Disease and Cardio Vascular Disease Using Retinal Images",
+      description: "Medical AI system for early disease detection through retinal image analysis",
+      tech: ["Python", "Deep Learning", "OpenCV", "Medical Imaging"],
+      category: "Medical AI",
+      image: "👁️",
       demoLink: "#",
       githubLink: "#"
     }
   ];
 
-  const categories = ['All', 'Web', 'Mobile', 'AI', 'Blockchain', 'AR/VR'];
+  const categories = ['All', 'Web', 'AI', 'Medical AI'];
   
   const filteredProjects = filter === 'All' 
     ? projects 
