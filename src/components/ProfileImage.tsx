@@ -17,7 +17,7 @@ const ProfileImage = ({ className = "", showBorder = true }: ProfileImageProps) 
         >
           <Avatar className="w-full h-full">
             <AvatarImage 
-              src="/lovable-uploads/fcb4166e-b3b7-4013-8b1d-37420872942e.png" 
+              src="/lovable-uploads/0b359b16-bbb7-4c09-a46d-0ef5b0576f77.png" 
               alt="Profile Picture" 
               className="object-cover"
             />
@@ -29,7 +29,7 @@ const ProfileImage = ({ className = "", showBorder = true }: ProfileImageProps) 
       {!showBorder && (
         <Avatar className="w-full h-full">
           <AvatarImage 
-            src="/lovable-uploads/fcb4166e-b3b7-4013-8b1d-37420872942e.png" 
+            src="/lovable-uploads/0b359b16-bbb7-4c09-a46d-0ef5b0576f77.png" 
             alt="Profile Picture" 
             className="object-cover"
           />
