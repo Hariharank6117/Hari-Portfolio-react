@@ -208,7 +208,7 @@ const Contact = () => {
                 <div className="text-center">
                   <div className="text-4xl mb-4">📧</div>
                   <h3 className="text-xl font-semibold text-white mb-2">Email</h3>
-                  <p className="text-purple-300">your.email@example.com</p>
+                  <p className="text-purple-300">dpihariharan2002@gmail.com</p>
                 </div>
               </CardContent>
             </Card>
@@ -218,7 +218,7 @@ const Contact = () => {
                 <div className="text-center">
                   <div className="text-4xl mb-4">📱</div>
                   <h3 className="text-xl font-semibold text-white mb-2">Phone</h3>
-                  <p className="text-purple-300">+1 (555) 123-4567</p>
+                  <p className="text-purple-300">+91 9025516697</p>
                 </div>
               </CardContent>
             </Card>
@@ -228,7 +228,7 @@ const Contact = () => {
                 <div className="text-center">
                   <div className="text-4xl mb-4">📍</div>
                   <h3 className="text-xl font-semibold text-white mb-2">Location</h3>
-                  <p className="text-purple-300">New York, NY</p>
+                  <p className="text-purple-300">Dharmapuri, Tamil Nadu</p>
                 </div>
               </CardContent>
             </Card>
@@ -244,19 +244,38 @@ const Contact = () => {
               </h3>
               <div className="flex justify-center space-x-6">
                 {[
-                  { icon: Linkedin, label: "LinkedIn" },
-                  { icon: Github, label: "GitHub" },
-                  { icon: Twitter, label: "Twitter" },
-                  { icon: Instagram, label: "Instagram" }
+                  { 
+                    icon: Linkedin, 
+                    label: "LinkedIn", 
+                    url: "https://linkedin.com/in/hari-haran-7b778b21b" 
+                  },
+                  { 
+                    icon: Github, 
+                    label: "GitHub", 
+                    url: "https://github.com/Hariharank6117/Todo-list-using-React" 
+                  },
+                  { 
+                    icon: Twitter, 
+                    label: "X (Twitter)", 
+                    url: "https://x.com/HKhariaran000?t=v2jV-VE_ArMRX9bScwBw7Q&s=09" 
+                  },
+                  { 
+                    icon: Instagram, 
+                    label: "Instagram", 
+                    url: "https://www.instagram.com/itz_me_mr_error_?igsh=NXE4bWRyeHd2OThl&utm_source=ig_contact_invite" 
+                  }
                 ].map((social, index) => {
                   const IconComponent = social.icon;
                   return (
                     <motion.a
                       key={social.label}
-                      href="#"
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.2, rotate: 10 }}
                       whileTap={{ scale: 0.9 }}
                       className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-lg border border-purple-400/30 rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+                      title={social.label}
                     >
                       <IconComponent size={20} className="text-white" />
                     </motion.a>
