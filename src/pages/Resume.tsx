@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -10,7 +9,7 @@ const Resume = () => {
     // Replace with your actual resume file path
     const link = document.createElement('a');
     link.href = '/resume.pdf';
-    link.download = 'Your_Name_Resume.pdf';
+    link.download = 'Hariharan_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -109,14 +108,14 @@ const Resume = () => {
                   {/* Resume content preview */}
                   <div className="max-w-3xl mx-auto">
                     <div className="text-center mb-8">
-                      <h1 className="text-3xl font-bold text-gray-800 mb-2">Your Name</h1>
+                      <h1 className="text-3xl font-bold text-gray-800 mb-2">Hariharan</h1>
                       <p className="text-lg text-gray-600">Full Stack Developer</p>
                       <div className="flex justify-center gap-4 mt-2 text-sm text-gray-500">
-                        <span>your.email@example.com</span>
+                        <span>hariharan.dev@example.com</span>
                         <span>•</span>
-                        <span>+1 (555) 123-4567</span>
+                        <span>+91 98765 43210</span>
                         <span>•</span>
-                        <span>Your City, Country</span>
+                        <span>Chennai, India</span>
                       </div>
                     </div>
 
@@ -126,9 +125,7 @@ const Resume = () => {
                           Professional Summary
                         </h2>
                         <p className="text-gray-700 leading-relaxed">
-                          Passionate Full Stack Developer with 5+ years of experience building 
-                          modern web applications. Skilled in React, Node.js, and cloud technologies. 
-                          Committed to writing clean, efficient code and delivering exceptional user experiences.
+                          To obtain an entry-level Full Stack Developer position where I can apply my knowledge of front-end and back-end technologies such as HTML, CSS, JavaScript, React, Java, Spring Boot, and Oracle to build responsive, user-friendly web applications, while gaining practical experience and contributing to the success of the development team.
                         </p>
                       </div>
 
@@ -139,11 +136,11 @@ const Resume = () => {
                         <div className="grid grid-cols-2 gap-4">
                           <div>
                             <h3 className="font-medium text-gray-800 mb-2">Frontend</h3>
-                            <p className="text-sm text-gray-600">React, TypeScript, Tailwind CSS, Next.js</p>
+                            <p className="text-sm text-gray-600">HTML & CSS, Media Query, React, Javascript, TypeScript</p>
                           </div>
                           <div>
                             <h3 className="font-medium text-gray-800 mb-2">Backend</h3>
-                            <p className="text-sm text-gray-600">Node.js, Python, Express, PostgreSQL</p>
+                            <p className="text-sm text-gray-600">Java, Servlet, JSP, Spring, Spring Boot & Oracle</p>
                           </div>
                         </div>
                       </div>
@@ -154,12 +151,26 @@ const Resume = () => {
                         </h2>
                         <div className="space-y-4">
                           <div>
-                            <h3 className="font-medium text-gray-800">Senior Frontend Developer</h3>
-                            <p className="text-sm text-gray-600">Company Name • 2022 - Present</p>
-                            <ul className="text-sm text-gray-700 mt-2 list-disc list-inside space-y-1">
-                              <li>Led development of user-facing features for 100k+ users</li>
-                              <li>Improved application performance by 40% through optimization</li>
-                            </ul>
+                            <h3 className="font-medium text-gray-800">Fresher</h3>
+                            <p className="text-sm text-gray-600">Ready to start professional career</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h2 className="text-xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4">
+                          Certificate & Internship
+                        </h2>
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-sm text-gray-700">
+                              • Completed Java, Spring Boot, React and SQL at Maasmind, Chennai.
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-700">
+                              • Completed hands-on training, code reviews, and mock interviews as part of the internship at Maasmind, Chennai.
+                            </p>
                           </div>
                         </div>
                       </div>

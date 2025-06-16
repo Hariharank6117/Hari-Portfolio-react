@@ -1,7 +1,7 @@
-
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import ProfileImage from '@/components/ProfileImage';
 
 const About = () => {
   return (
@@ -35,22 +35,7 @@ const About = () => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="relative">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="w-80 h-80 mx-auto rounded-full bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 p-1"
-              >
-                <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-6xl">
-                  👨‍💻
-                </div>
-              </motion.div>
-              
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border-2 border-dashed border-purple-400/50 rounded-full"
-              />
-            </div>
+            <ProfileImage className="w-80 h-80 mx-auto" />
           </motion.div>
 
           <motion.div
@@ -65,10 +50,7 @@ const About = () => {
               </CardHeader>
               <CardContent className="text-white/80">
                 <p className="mb-4">
-                  I'm a passionate full-stack developer with over X years of experience creating 
-                  digital solutions that make a difference. My journey started with curiosity 
-                  about how websites work, and it has evolved into a deep passion for crafting 
-                  exceptional user experiences.
+                  As I'm a Full Stack Developer with strong skills in HTML5, CSS3, JavaScript, React, and Angular. This section shows my core front-end abilities through a clean and clear design.
                 </p>
                 <p>
                   I specialize in modern web technologies and love experimenting with new 
@@ -85,7 +67,6 @@ const About = () => {
               <CardContent className="text-white/80">
                 <ul className="space-y-2">
                   <li>• Full-stack web application development</li>
-                  <li>• UI/UX design and implementation</li>
                   <li>• Mobile-responsive design</li>
                   <li>• API development and integration</li>
                   <li>• Performance optimization</li>

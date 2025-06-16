@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import AnimatedBackground from '@/components/AnimatedBackground';
@@ -138,7 +137,7 @@ const Skills = () => {
             What I'm Currently Learning
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            {["MySQL", "MongoDB", "REST APIs", "Microservices", "Docker"].map((tech, index) => (
+            {["MySQL", "RestAPI", "Tailwind"].map((tech, index) => (
               <motion.div
                 key={tech}
                 initial={{ scale: 0 }}

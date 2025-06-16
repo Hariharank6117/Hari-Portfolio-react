@@ -77,7 +77,7 @@ const Home = () => {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="text-white"
                 >
-                  Your Name
+                  Hariharan
                 </motion.span>
               </motion.h1>
               
