@@ -10,6 +10,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { toast } from 'sonner';
 import { Linkedin, Github, Twitter, Instagram } from 'lucide-react';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -26,19 +27,38 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Show success message
-    setShowSuccess(true);
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
-    
-    // Hide success message after 5 seconds
-    setTimeout(() => setShowSuccess(false), 5000);
+    try {
+      // EmailJS configuration - you'll need to set these up
+      const serviceId = 'your_service_id';
+      const templateId = 'your_template_id';
+      const publicKey = 'your_public_key';
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'dpihariharan2002@gmail.com',
+        to_phone: '9025516697'
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      // Show success message
+      setShowSuccess(true);
+      toast.success("Message sent successfully! I'll get back to you soon.");
+      
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => setShowSuccess(false), 5000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast.error("Failed to send message. Please try again or contact me directly at dpihariharan2002@gmail.com");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -98,6 +118,18 @@ const Contact = () => {
                     </Alert>
                   </motion.div>
                 )}
+
+                <div className="mb-4 p-4 bg-blue-500/20 border border-blue-500/50 rounded-lg">
+                  <p className="text-blue-300 text-sm">
+                    📧 To enable email functionality, please set up EmailJS:
+                    <br />
+                    1. Create account at <a href="https://emailjs.com" target="_blank" rel="noopener noreferrer" className="underline">emailjs.com</a>
+                    <br />
+                    2. Configure your email service
+                    <br />
+                    3. Update the service ID, template ID, and public key in the code
+                  </p>
+                </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <motion.div
@@ -185,7 +217,7 @@ const Contact = () => {
                   >
                     <Button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !formData.name || !formData.email || !formData.subject || !formData.message}
                       className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white border-none hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 disabled:opacity-50"
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message ✨'}
