@@ -28,10 +28,10 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // EmailJS configuration - you'll need to set these up
-      const serviceId = 'your_service_id';
-      const templateId = 'your_template_id';
-      const publicKey = 'your_public_key';
+      // EmailJS configuration - Replace these with your actual EmailJS credentials
+      const serviceId = 'service_your_id';  // Replace with your EmailJS service ID
+      const templateId = 'template_your_id'; // Replace with your EmailJS template ID
+      const publicKey = 'your_public_key';   // Replace with your EmailJS public key
       
       const templateParams = {
         from_name: formData.name,
@@ -39,10 +39,12 @@ const Contact = () => {
         subject: formData.subject,
         message: formData.message,
         to_email: 'dpihariharan2002@gmail.com',
-        to_phone: '9025516697'
+        to_name: 'Hariharan',
+        reply_to: formData.email
       };
 
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('Email sent successfully:', result);
       
       // Show success message
       setShowSuccess(true);
@@ -55,7 +57,7 @@ const Contact = () => {
       setTimeout(() => setShowSuccess(false), 5000);
     } catch (error) {
       console.error('Error sending email:', error);
-      toast.error("Failed to send message. Please try again or contact me directly at dpihariharan2002@gmail.com");
+      toast.error("Failed to send message. Please set up EmailJS credentials or contact me directly at dpihariharan2002@gmail.com");
     } finally {
       setIsSubmitting(false);
     }
@@ -119,15 +121,20 @@ const Contact = () => {
                   </motion.div>
                 )}
 
-                <div className="mb-4 p-4 bg-blue-500/20 border border-blue-500/50 rounded-lg">
-                  <p className="text-blue-300 text-sm">
-                    📧 To enable email functionality, please set up EmailJS:
-                    <br />
-                    1. Create account at <a href="https://emailjs.com" target="_blank" rel="noopener noreferrer" className="underline">emailjs.com</a>
-                    <br />
-                    2. Configure your email service
-                    <br />
-                    3. Update the service ID, template ID, and public key in the code
+                <div className="mb-6 p-4 bg-yellow-500/20 border border-yellow-500/50 rounded-lg">
+                  <h4 className="text-yellow-300 font-semibold mb-2">📧 EmailJS Setup Required</h4>
+                  <p className="text-yellow-200 text-sm mb-2">
+                    To enable email functionality, please complete these steps:
+                  </p>
+                  <ol className="text-yellow-200 text-sm space-y-1 list-decimal list-inside">
+                    <li>Create a free account at <a href="https://emailjs.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">emailjs.com</a></li>
+                    <li>Add your email service (Gmail, Outlook, etc.)</li>
+                    <li>Create an email template with variables: from_name, from_email, subject, message, to_email</li>
+                    <li>Get your Service ID, Template ID, and Public Key</li>
+                    <li>Replace the placeholder values in the code with your actual credentials</li>
+                  </ol>
+                  <p className="text-yellow-200 text-xs mt-2">
+                    💡 Once configured, messages will be sent directly to dpihariharan2002@gmail.com
                   </p>
                 </div>
 
