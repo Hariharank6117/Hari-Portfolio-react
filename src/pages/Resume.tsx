@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -111,11 +112,11 @@ const Resume = () => {
                       <h1 className="text-3xl font-bold text-gray-800 mb-2">Hariharan</h1>
                       <p className="text-lg text-gray-600">Full Stack Developer</p>
                       <div className="flex justify-center gap-4 mt-2 text-sm text-gray-500">
-                        <span>hariharan.dev@example.com</span>
+                        <span>dpihariharan2002@gmail.com</span>
                         <span>•</span>
-                        <span>+91 98765 43210</span>
+                        <span>+91 9025516697</span>
                         <span>•</span>
-                        <span>Chennai, India</span>
+                        <span>Dharmapuri, India</span>
                       </div>
                     </div>
 
