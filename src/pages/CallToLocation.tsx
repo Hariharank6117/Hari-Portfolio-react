@@ -3,9 +3,16 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MapPin, Calendar, Phone } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
 const CallToLocation = () => {
+  const navigate = useNavigate();
+
+  const handleBookMeeting = () => {
+    navigate('/contact');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -47,11 +54,11 @@ const CallToLocation = () => {
               </CardHeader>
               <CardContent className="text-white/80">
                 <p className="mb-4">
-                  📍 Based in Chennai, Tamil Nadu, India
+                  📍 Based in Dharmapuri, Tamil Nadu, India
                 </p>
                 <p>
                   I'm available for remote work globally and in-person meetings 
-                  in Chennai and surrounding areas. Let's find the best way to collaborate!
+                  in Tamil Nadu and surrounding areas. Let's find the best way to collaborate!
                 </p>
               </CardContent>
             </Card>
@@ -70,7 +77,7 @@ const CallToLocation = () => {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button 
                     className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white"
-                    onClick={() => window.open('https://calendly.com/your-link', '_blank')}
+                    onClick={handleBookMeeting}
                   >
                     <Calendar className="mr-2 h-4 w-4" />
                     Book a Meeting
@@ -91,8 +98,8 @@ const CallToLocation = () => {
                   Prefer a quick chat? Reach out directly:
                 </p>
                 <div className="space-y-2 text-sm">
-                  <p className="text-white/70">📧 your.email@example.com</p>
-                  <p className="text-white/70">📱 +91 98765 43210</p>
+                  <p className="text-white/70">📧 dpihariharan2002@gmail.com</p>
+                  <p className="text-white/70">📱 +91 9025516697</p>
                   <p className="text-white/70">💬 Available Mon-Fri, 9AM-6PM IST</p>
                 </div>
               </CardContent>
@@ -107,7 +114,7 @@ const CallToLocation = () => {
           >
             <div className="w-full h-full rounded-lg overflow-hidden bg-black/20 backdrop-blur-lg border border-white/10">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497511.2313282967!2d79.87429686965317!3d13.048267162823252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sus!4v1234567890123"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497511.2313282967!2d77.87429686965317!3d12.048267162823252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6b6e4c7d3361%3A0x6e61a70b6863d433!2sDharmapuri%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sus!4v1234567890123"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
